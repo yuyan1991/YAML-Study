@@ -58,6 +58,68 @@ paths:
           description:  Page Not Found
         500:
           description:  Internal Error
+  /origin/{musicName}:
+    get:
+      summary:  Get the specific music sheet
+      description:  Return the specific music sheet for its name
+      parameters:
+        - name: musicName
+          in: path
+          required: true
+          description:  The music sheet's name
+          type: string
+        - name: key
+          in: query
+          required: false
+          description:  The key of music
+          type: string
+        - name: singer
+          in: query
+          required: false
+          description:  The singer of the music
+          type: string
+        - name: composer
+          in: query
+          required: false
+          description:  The composer of the music
+          type: string
+        - name: lyricist
+          in: query
+          required: false
+          description:  The lyricist of the music
+          type: string
+      responses:
+        200:
+          description:  The Music Sheet is returned successfully!
+          schema:
+            required:
+              - musicName
+              - key
+              - timeSignature
+              - melody
+            properties:
+              musicName:
+                type: string
+              key:
+                type: string
+              timeSignature:
+                type: string
+              tempo:
+                type: string
+              composer:
+                type: string
+              lyricist:
+                type: string
+              singer:
+                type: string
+              melody:
+                type: string
+              lyric:
+                type: string
+        404:
+          description:  The music sheet is not found!
+        500:
+          description:  Internal Error
   /converted:
     get:
       summary: Gets Converted Music Sheets
@@ -103,5 +165,67 @@ paths:
                   type: string
         404:
           description:  Page Not Found
+        500:
+          description:  Internal Error
+  /converted/{musicName}:
+    get:
+      summary:  Get the specific music sheet
+      description:  Return the specific music sheet for its name
+      parameters:
+        - name: musicName
+          in: path
+          required: true
+          description:  The music sheet's name
+          type: string
+        - name: key
+          in: query
+          required: false
+          description:  The key of music
+          type: string
+        - name: singer
+          in: query
+          required: false
+          description:  The singer of the music
+          type: string
+        - name: composer
+          in: query
+          required: false
+          description:  The composer of the music
+          type: string
+        - name: lyricist
+          in: query
+          required: false
+          description:  The lyricist of the music
+          type: string
+      responses:
+        200:
+          description:  The Music Sheet is returned successfully!
+          schema:
+            required:
+              - musicName
+              - key
+              - timeSignature
+              - melody
+            properties:
+              musicName:
+                type: string
+              key:
+                type: string
+              timeSignature:
+                type: string
+              tempo:
+                type: string
+              composer:
+                type: string
+              lyricist:
+                type: string
+              singer:
+                type: string
+              melody:
+                type: string
+              lyric:
+                type: string
+        404:
+          description:  The music sheet is not found!
         500:
           description:  Internal Error
