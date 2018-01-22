@@ -1,0 +1,89 @@
+swagger: "2.0"
+
+info:
+  version: 1.0
+  title: Music Sheet Conversion Tool
+  description: Ziqi's tool to convert the music sheet into another Major
+
+schemes:
+  - https
+host: convertmusicsheet.api
+basepath: /openapi/tools/conversion/sheets/music
+
+paths:
+  /origin:
+    get:
+      summary: Gets Original Music Sheets
+      description: Returns a list of original music sheet
+      responses:
+        200:
+          description: A list of original music sheet
+          schema:
+            type: array
+            items:
+              required:
+                - musicName
+                - key
+              properties:
+                musicName:
+                  type: string
+                key:
+                  type: string
+                timeSignature:  #拍子
+                  type: string
+                tempo:
+                  type: string
+                melody:
+                  type: string
+                lyrics:
+                  type: string
+                composer:
+                  type: string
+                lyricist:
+                  type: string
+                singer:
+                  type: string
+                msid: # Music Sheet ID
+                  type: string
+        404:
+          description:  Page Not Found
+        500:
+          description:  Internal Error
+  /converted:
+    get:
+      summary: Gets Converted Music Sheets
+      description: Returns a list of converted music sheet
+      responses:
+        200:
+          description:  A list of converted music sheet
+          schema:
+            type: array
+            items:
+              required:
+                - musicName
+                - key
+              properties:
+                musicName:
+                  type: string
+                key:
+                  type: string
+                timeSignature:  #拍子
+                  type: string
+                tempo:
+                  type: string
+                melody:
+                  type: string
+                lyrics:
+                  type: string
+                composer:
+                  type: string
+                lyricist:
+                  type: string
+                singer:
+                  type: string
+                msid: # Music Sheet ID
+                  type: string
+        404:
+          description:  Page Not Found
+        500:
+          description:  Internal Error
