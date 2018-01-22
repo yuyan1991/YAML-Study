@@ -39,6 +39,28 @@ paths:
                   type: string
                 username:
                   type: string
+    post:
+      summary: Creates a person
+      description: Adds a new person to the persons list.
+      parameters:
+        - name: person
+          in: body
+          description: The person to create.
+          schema:
+            required:
+              - username
+            properties:
+              firstName:
+                type: string
+              lastName:
+                type: string
+              username:
+                type: string
+      responses:
+        204:
+          description: Persons succesfully created.
+        400:
+          description: Persons couldn't have been created.
   /persons/{username}:
     get:
       summary: Gets a person
