@@ -15,6 +15,15 @@ paths:
     get:
       summary: Gets Original Music Sheets
       description: Returns a list of original music sheet
+      parameters:
+        - name: pageSize
+          in: query
+          description:  Number of music sheets returned
+          type: integer
+        - name: pageNumber
+          in: query
+          description:  Page Number
+          type: integer
       responses:
         200:
           description: A list of original music sheet
@@ -53,6 +62,15 @@ paths:
     get:
       summary: Gets Converted Music Sheets
       description: Returns a list of converted music sheet
+      parameters:
+        - name: pageSize
+          in: query
+          description:  Number of music sheets returned
+          type: integer
+        - name: pageNumber
+          in: query
+          description:  Page number
+          type: integer
       responses:
         200:
           description:  A list of converted music sheet

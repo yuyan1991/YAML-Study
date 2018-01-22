@@ -15,6 +15,15 @@ paths:
     get:
       summary: Gets some persons
       description: Returns a list containing all persons.
+      parameters:
+       - name: pageSize
+         in: query
+         description: Number of persons returned
+         type: integer
+       - name: pageNumber
+         in: query
+         description: Page number
+         type: integer
       responses:
         200:
           description: A list of Person
