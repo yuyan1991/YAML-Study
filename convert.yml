@@ -1,14 +1,14 @@
 swagger: "2.0"
 
 info:
-  version: 1.0
+  version: "1.0"
   title: Music Sheet Conversion Tool
   description: Ziqi's tool to convert the music sheet into another Major
 
 schemes:
   - https
 host: convertmusicsheet.api
-basepath: /openapi/tools/conversion/sheets/music
+basePath: /openapi/tools/conversion/sheets/music
 
 paths:
   /origin:
