@@ -16,14 +16,8 @@ paths:
       summary: Gets Original Music Sheets
       description: Returns a list of original music sheet
       parameters:
-        - name: pageSize
-          in: query
-          description:  Number of music sheets returned
-          type: integer
-        - name: pageNumber
-          in: query
-          description:  Page Number
-          type: integer
+        - $ref: "#/parameters/pageSize"
+        - $ref: "#/parameters/pageNumber"
       responses:
         200:
           description: A list of original music sheet
@@ -53,31 +47,11 @@ paths:
       summary:  Get the specific music sheet
       description:  Return the specific music sheet for its name
       parameters:
-        - name: musicName
-          in: path
-          required: true
-          description:  The music sheet's name
-          type: string
-        - name: key
-          in: query
-          required: false
-          description:  The key of music
-          type: string
-        - name: singer
-          in: query
-          required: false
-          description:  The singer of the music
-          type: string
-        - name: composer
-          in: query
-          required: false
-          description:  The composer of the music
-          type: string
-        - name: lyricist
-          in: query
-          required: false
-          description:  The lyricist of the music
-          type: string
+        - $ref: "#/parameters/musicName"
+        - $ref: "#/parameters/key"
+        - $ref: "#/parameters/singer"
+        - $ref: "#/parameters/composer"
+        - $ref: "#/parameters/lyricist"
       responses:
         200:
           description:  The Music Sheet is returned successfully!
@@ -93,14 +67,8 @@ paths:
       summary: Gets Converted Music Sheets
       description: Returns a list of converted music sheet
       parameters:
-        - name: pageSize
-          in: query
-          description:  Number of music sheets returned
-          type: integer
-        - name: pageNumber
-          in: query
-          description:  Page number
-          type: integer
+        - $ref: "#/parameters/pageSize"
+        - $ref: "#/parameters/pageNumber"
       responses:
         200:
           description:  A list of converted music sheet
@@ -116,31 +84,11 @@ paths:
       summary:  Get the specific music sheet
       description:  Return the specific music sheet for its name
       parameters:
-        - name: musicName
-          in: path
-          required: true
-          description:  The music sheet's name
-          type: string
-        - name: key
-          in: query
-          required: false
-          description:  The key of music
-          type: string
-        - name: singer
-          in: query
-          required: false
-          description:  The singer of the music
-          type: string
-        - name: composer
-          in: query
-          required: false
-          description:  The composer of the music
-          type: string
-        - name: lyricist
-          in: query
-          required: false
-          description:  The lyricist of the music
-          type: string
+        - $ref: "#/parameters/musicName"
+        - $ref: "#/parameters/key"
+        - $ref: "#/parameters/singer"
+        - $ref: "#/parameters/composer"
+        - $ref: "#/parameters/lyricist"
       responses:
         200:
           description:  The Music Sheet is returned successfully!
@@ -184,11 +132,56 @@ definitions:
         type: string
 
   Error:
+    required:
+      - code
+      - message
     properties:
       code:
         type: string
       message:
         type: string
+
+parameters:
+  pageSize:
+    name: pageSize
+    in: query
+    description:  Number of music sheets returned
+    type: integer
+  pageNumber:
+    name: pageNumber
+    in: query
+    description:  Page number
+    type: integer
+  musicName:
+    name: musicName
+    in: path
+    required: true
+    description:  The music sheet's name
+    type: string
+  key:
+    name: key
+    in: query
+    required: false
+    description:  The key of music
+    type: string
+  singer:
+    name: singer
+    in: query
+    required: false
+    description:  The singer of the music
+    type: string
+  composer:
+    name: composer
+    in: query
+    required: false
+    description:  The composer of the music
+    type: string
+  lyricist:
+    name: lyricist
+    in: query
+    required: false
+    description:  The lyricist of the music
+    type: string
 
 responses:
   ExecutionError:
