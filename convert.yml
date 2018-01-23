@@ -153,8 +153,8 @@ definitions:
     type: array
     items:
       $ref: "#/definitions/MusicSheet"
-      msid: # Music Sheet ID
-        type: string
+      # msid: # Music Sheet ID
+      #   type: string
   MusicSheet:
     required:
       - musicName
