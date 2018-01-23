@@ -58,6 +58,41 @@ paths:
           description:  Page Not Found
         500:
           description:  Internal Error
+    post:
+      summary:  Add a new music sheet (Origin)
+      description:  Add a new music sheet in the server
+      parameters:
+        - name: musicSheet
+          in: body
+          description: Create a new music sheet
+          schema:
+            required:
+              - musicName
+              - key
+            properties:
+              musicName:
+                type: string
+              key:
+                type: string
+              timeSignature:
+                type: string
+              tempo:
+                type: string
+              melody:
+                type: string
+              lyrics:
+                type: string
+              composer:
+                type: string
+              lyricist:
+                type: string
+              singer:
+                type: string
+      responses:
+        204:
+          description:  The music sheet is created successfully
+        400:
+          description:  The music sheet couldn't be created
   /origin/{musicName}:
     get:
       summary:  Get the specific music sheet
