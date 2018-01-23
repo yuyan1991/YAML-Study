@@ -82,8 +82,7 @@ definitions:
     type: array
     items:
       $ref: "#/definitions/Person"
-
-Error:
+  Error:
     properties:
       code:
         type: string
