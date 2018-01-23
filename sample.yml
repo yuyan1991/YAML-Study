@@ -29,6 +29,8 @@ paths:
           description: A list of Person
           schema:
             $ref: "#/definitions/Persons"
+        500:
+          $ref: "#/responses/Standard500ErrorResponse"
     post:
       summary: Creates a person
       description: Adds a new person to the persons list.
@@ -43,6 +45,8 @@ paths:
           description: Persons succesfully created.
         400:
           description: Persons couldn't have been created.
+        500:
+          $ref: "#/responses/Standard500ErrorResponse"
   /persons/{username}:
     get:
       summary: Gets a person
@@ -60,6 +64,8 @@ paths:
             $ref: "#/definitions/Person"
         404:
           description: The Person does not exists.
+        500:
+          $ref: "#/responses/Standard500ErrorResponse"
 
 definitions:
   Person:
@@ -76,3 +82,16 @@ definitions:
     type: array
     items:
       $ref: "#/definitions/Person"
+
+Error:
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+
+responses:
+  Standard500ErrorResponse:
+    description: An unexpected error occured.
+    schema:
+      $ref: "#/definitions/Error"
