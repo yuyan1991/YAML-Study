@@ -41,7 +41,7 @@ paths:
           in: body
           description: Create a new music sheet
           schema:
-            $ref: "#/defintions/MusicSheet"
+            $ref: "#/definitions/MusicSheet"
       responses:
         204:
           description:  The music sheet is created successfully
