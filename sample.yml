@@ -28,17 +28,7 @@ paths:
         200:
           description: A list of Person
           schema:
-            type: array
-            items:
-              required:
-                - username
-              properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                username:
-                  type: string
+            $ref: "#/definitions/Persons"
     post:
       summary: Creates a person
       description: Adds a new person to the persons list.
@@ -47,15 +37,7 @@ paths:
           in: body
           description: The person to create.
           schema:
-            required:
-              - username
-            properties:
-              firstName:
-                type: string
-              lastName:
-                type: string
-              username:
-                type: string
+            $ref: "#/definitions/Person"
       responses:
         204:
           description: Persons succesfully created.
@@ -75,14 +57,22 @@ paths:
         200:
           description: A Person
           schema:
-            required:
-              - username
-            properties:
-              firstName:
-                type: string
-              lastName:
-                type: string
-              username:
-                type: string
+            $ref: "#/definitions/Person"
         404:
           description: The Person does not exists.
+
+definitions:
+  Person:
+    required:
+      - username
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      username:
+        type: string
+  Persons:
+    type: array
+    items:
+      $ref: "#/definitions/Person"

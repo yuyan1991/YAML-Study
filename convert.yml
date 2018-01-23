@@ -28,32 +28,7 @@ paths:
         200:
           description: A list of original music sheet
           schema:
-            type: array
-            items:
-              required:
-                - musicName
-                - key
-              properties:
-                musicName:
-                  type: string
-                key:
-                  type: string
-                timeSignature:  #拍子
-                  type: string
-                tempo:
-                  type: string
-                melody:
-                  type: string
-                lyrics:
-                  type: string
-                composer:
-                  type: string
-                lyricist:
-                  type: string
-                singer:
-                  type: string
-                msid: # Music Sheet ID
-                  type: string
+            $ref: "#/definitions/MusicSheetList"
         404:
           description:  Page Not Found
         500:
@@ -66,28 +41,7 @@ paths:
           in: body
           description: Create a new music sheet
           schema:
-            required:
-              - musicName
-              - key
-            properties:
-              musicName:
-                type: string
-              key:
-                type: string
-              timeSignature:
-                type: string
-              tempo:
-                type: string
-              melody:
-                type: string
-              lyrics:
-                type: string
-              composer:
-                type: string
-              lyricist:
-                type: string
-              singer:
-                type: string
+            $ref: "#/defintions/MusicSheet"
       responses:
         204:
           description:  The music sheet is created successfully
@@ -127,30 +81,7 @@ paths:
         200:
           description:  The Music Sheet is returned successfully!
           schema:
-            required:
-              - musicName
-              - key
-              - timeSignature
-              - melody
-            properties:
-              musicName:
-                type: string
-              key:
-                type: string
-              timeSignature:
-                type: string
-              tempo:
-                type: string
-              composer:
-                type: string
-              lyricist:
-                type: string
-              singer:
-                type: string
-              melody:
-                type: string
-              lyric:
-                type: string
+            $ref: "#/definitions/MusicSheet"
         404:
           description:  The music sheet is not found!
         500:
@@ -172,32 +103,7 @@ paths:
         200:
           description:  A list of converted music sheet
           schema:
-            type: array
-            items:
-              required:
-                - musicName
-                - key
-              properties:
-                musicName:
-                  type: string
-                key:
-                  type: string
-                timeSignature:  #拍子
-                  type: string
-                tempo:
-                  type: string
-                melody:
-                  type: string
-                lyrics:
-                  type: string
-                composer:
-                  type: string
-                lyricist:
-                  type: string
-                singer:
-                  type: string
-                msid: # Music Sheet ID
-                  type: string
+            $ref: "#/definitions/MusicSheetList"
         404:
           description:  Page Not Found
         500:
@@ -236,31 +142,39 @@ paths:
         200:
           description:  The Music Sheet is returned successfully!
           schema:
-            required:
-              - musicName
-              - key
-              - timeSignature
-              - melody
-            properties:
-              musicName:
-                type: string
-              key:
-                type: string
-              timeSignature:
-                type: string
-              tempo:
-                type: string
-              composer:
-                type: string
-              lyricist:
-                type: string
-              singer:
-                type: string
-              melody:
-                type: string
-              lyric:
-                type: string
+            $ref: "#/definitions/MusicSheet"
         404:
           description:  The music sheet is not found!
         500:
           description:  Internal Error
+
+definitions:
+  MusicSheetList:
+    type: array
+    items:
+      $ref: "#/definitions/MusicSheet"
+      msid: # Music Sheet ID
+        type: string
+  MusicSheet:
+    required:
+      - musicName
+      - key
+    properties:
+      musicName:
+        type: string
+      key:
+        type: string
+      timeSignature:
+        type: string
+      tempo:
+        type: string
+      melody:
+        type: string
+      lyrics:
+        type: string
+      composer:
+        type: string
+      lyricist:
+        type: string
+      singer:
+        type: string
