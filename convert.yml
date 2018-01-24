@@ -22,7 +22,7 @@ paths:
         200:
           description: A list of original music sheet
           schema:
-            $ref: "#/definitions/MusicSheetList"
+            $ref: "#/definitions/PagedMusicSheetList"
         404:
           $ref: "#/responses/NotFoundError"
         500:
@@ -85,7 +85,7 @@ paths:
         200:
           description:  A list of converted music sheet
           schema:
-            $ref: "#/definitions/MusicSheetList"
+            $ref: "#/definitions/PagedMusicSheetList"
         404:
           $ref: "#/responses/NotFoundError"
         500:
@@ -122,6 +122,22 @@ paths:
           $ref: "#/responses/InternalError"
 
 definitions:
+  PagedMusicSheetList:
+    allOf:
+      - $ref: "#/definitions/MusicSheetList"
+      - $ref: "#/definitions/Paging"
+
+  Paging:
+    properties:
+      totalItems:
+        type: integer
+      totalPages:
+        type: integer
+      pageSize:
+        type: integer
+      currentPage:
+        type: integer
+
   MusicSheetList:
     type: array
     items:
