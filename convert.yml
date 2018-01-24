@@ -125,9 +125,9 @@ definitions:
   MusicSheetList:
     type: array
     items:
+      maxItems:  1000
+      uniqueItems:  true
       $ref: "#/definitions/MusicSheet"
-      # msid: # Music Sheet ID
-      #   type: string
 
   MusicSheet:
     required:
@@ -136,8 +136,10 @@ definitions:
     properties:
       musicName:
         type: string
+        maxLength:  100
       key:
         type: string
+        maxLength:  10
       timeSignature:
         type: string
       tempo:
@@ -152,6 +154,17 @@ definitions:
         type: string
       singer:
         type: string
+      msid: # Music Sheet ID
+        type: string
+        readOnly: true  # 使msid只能在get的时候显示，在post的时候无法定义该field的value
+      createdTimestamp:
+        type: string
+        format: dateTime
+        readOnly: true  # 使createdTimestamp只能在get的时候显示，在post的时候无法定义该field的value
+      lastUpdatedTimestamp:
+        type: string
+        format: dateTime
+        readOnly: true  # 使lastUpdatedTimestamp只能在get的时候显示，在post的时候无法定义该field的value
 
   Error:
     required:
@@ -160,6 +173,11 @@ definitions:
     properties:
       code:
         type: string
+        enum:
+          - DBERR
+          - NTERR
+          - PGERR
+          - UNERR
       message:
         type: string
 
@@ -169,6 +187,11 @@ parameters:
     in: query
     description:  Number of music sheets returned
     type: integer
+    minimum:  0
+    exclusiveMinimum: true
+    maximum:  100
+    exclusiveMaximum: false
+    multipleOf: 10
   pageNumber:
     name: pageNumber
     in: query
