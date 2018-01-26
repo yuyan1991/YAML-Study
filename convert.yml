@@ -208,6 +208,7 @@ parameters:
     maximum:  100
     exclusiveMaximum: false
     multipleOf: 10
+    default:  20
   pageNumber:
     name: pageNumber
     in: query
