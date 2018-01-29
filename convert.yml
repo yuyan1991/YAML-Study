@@ -170,6 +170,8 @@ definitions:
         type: string
       singer:
         type: string
+      performed:
+        type: string
       msid: # Music Sheet ID
         type: string
         readOnly: true  # 使msid只能在get的时候显示，在post的时候无法定义该field的value
@@ -244,6 +246,12 @@ parameters:
     required: false
     description:  The lyricist of the music
     type: string
+  performed:
+    name: performed
+    in: query
+    description:  Had this music been performed in the stage
+    default:  false
+    allowEmptyValue:  true
 
 responses:
   ExecutionError:
