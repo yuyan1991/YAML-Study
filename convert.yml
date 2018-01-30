@@ -19,7 +19,7 @@ tags:
       description:  "Converted Music Sheet"
       externalDocs:
         descripition: "More information..."
-        utl:  "localhost:8064"
+        url:  "localhost:8064"
 
 paths:
   /origin:
