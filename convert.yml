@@ -7,12 +7,25 @@ info:
 
 schemes:
   - https
-host: convertmusicsheet.api
+host: localhost:8064
 basePath: /openapi/tools/conversion/sheets/music
+tags:
+  - name: "origin"
+    description:  "Original Music Sheet"
+    externalDocs:
+      description:  "More information..."
+      url:  "localhost:8064"
+  - name: "converted"
+      description:  "Converted Music Sheet"
+      externalDocs:
+        descripition: "More information..."
+        utl:  "localhost:8064"
 
 paths:
   /origin:
     get:
+      tags:
+        - "origin"
       summary: Gets Original Music Sheets
       description: Returns a list of original music sheet
       parameters:
@@ -28,6 +41,8 @@ paths:
         500:
           $ref: "#/responses/InternalError"
     post:
+      tags:
+        - "origin"
       summary:  Add a new music sheet (Origin)
       description:  Add a new music sheet in the server
       parameters:
@@ -52,6 +67,8 @@ paths:
       - $ref: "#/parameters/composer"
       - $ref: "#/parameters/lyricist"
     get:
+      tags:
+        - name: "origin"
       summary:  Get the specific music sheet
       description:  Return the specific music sheet for its name
       responses:
@@ -64,6 +81,8 @@ paths:
         500:
           $ref: "#/responses/InternalError"
     delete:
+      tags:
+        - name: "origin"
       summary:  Delete the specific music sheet
       description:  Delete the specific music sheet according to its name
       responses:
@@ -76,6 +95,8 @@ paths:
 
   /converted:
     get:
+      tags:
+        - name: "converted"
       summary: Gets Converted Music Sheets
       description: Returns a list of converted music sheet
       parameters:
@@ -99,6 +120,8 @@ paths:
       - $ref: "#/parameters/composer"
       - $ref: "#/parameters/lyricist"
     get:
+      tags:
+        - name: "converted"
       summary:  Get the specific music sheet
       description:  Return the specific music sheet for its name
       responses:
@@ -111,6 +134,8 @@ paths:
         500:
           $ref: "#/responses/InternalError"
     delete:
+      tags:
+        - name: "converted"
       summary:  Delete the specific music sheet
       description:  Delete the specific music sheet according to its name
       responses:
