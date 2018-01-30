@@ -68,7 +68,7 @@ paths:
       - $ref: "#/parameters/lyricist"
     get:
       tags:
-        - name: "origin"
+        - "origin"
       summary:  Get the specific music sheet
       description:  Return the specific music sheet for its name
       responses:
@@ -82,7 +82,7 @@ paths:
           $ref: "#/responses/InternalError"
     delete:
       tags:
-        - name: "origin"
+        - "origin"
       summary:  Delete the specific music sheet
       description:  Delete the specific music sheet according to its name
       responses:
@@ -96,7 +96,7 @@ paths:
   /converted:
     get:
       tags:
-        - name: "converted"
+        - "converted"
       summary: Gets Converted Music Sheets
       description: Returns a list of converted music sheet
       parameters:
@@ -121,7 +121,7 @@ paths:
       - $ref: "#/parameters/lyricist"
     get:
       tags:
-        - name: "converted"
+        - "converted"
       summary:  Get the specific music sheet
       description:  Return the specific music sheet for its name
       responses:
@@ -135,7 +135,7 @@ paths:
           $ref: "#/responses/InternalError"
     delete:
       tags:
-        - name: "converted"
+        - "converted"
       summary:  Delete the specific music sheet
       description:  Delete the specific music sheet according to its name
       responses:
